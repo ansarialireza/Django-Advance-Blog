@@ -10,6 +10,6 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - SECRET_KEY = django-insecure-w^@bj@s=-tx_rv-k^us_z3ox6jjtexq$q6hiy*!nhkzpr(wbhh
-      - DEBUG = True
-      - ALLOWED_HOSTS = *
+      - SECRET_KEY=django-insecure-w^@bj@s=-tx_rv-k^us_z3ox6jjtexq$q6hiy*!nhkzpr(wbhh
+      - DEBUG=True
+      - ALLOWED_HOSTS=*
