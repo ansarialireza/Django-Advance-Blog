@@ -1,13 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin,BaseUserManager
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
-class Usermanager(BaseUserManagers):
+class UserManager(BaseUserManager):
     
     def create_user(self,email,passwoed,**extra_fields):
         if not email:
             raise ValueError(_("the email must be set."))
-        email=self.normalize_emil(email)
+        email=self.normalize_email(email)
         user = self.model(email=email,**extra_fields)
         user.set_password(passwoed)
         user.save()
@@ -32,6 +32,8 @@ class User(AbstractBaseUser,PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     
     USERNAME_FIELD='email'
+    
+    objects = UserManager()
     
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateField(auto_now=True)
