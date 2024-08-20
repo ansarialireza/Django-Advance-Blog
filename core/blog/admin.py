@@ -30,7 +30,7 @@ class PostAdmin(admin.ModelAdmin):
         }),
     )
     
-    inlines = [CategoryInline]
+    # inlines = [CategoryInline]
 
     # Overriding the save_model method to add custom logic when saving objects
     def save_model(self, request, obj, form, change):
